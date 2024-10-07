@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    
     public float speed=2;
     // Start is called before the first frame update
     void Start()
@@ -20,5 +21,9 @@ public class Wall : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Translate(Vector2.left * speed * Time.fixedDeltaTime);
+        if (transform.position.x < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
