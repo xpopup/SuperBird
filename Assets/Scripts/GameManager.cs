@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject wallPrefab;
     public float spawnTerm = 4;
+    public TextMeshProUGUI scoreLabel;
+    float score;
+
     float spawnTimer;
     // Start is called before the first frame update
     void Start()
     {
         spawnTimer = 0;
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         spawnTimer += Time.deltaTime;
+        score += Time.deltaTime;
+        scoreLabel.text = ((int)score).ToString();
         if (spawnTimer > spawnTerm)
         {
             spawnTimer -= spawnTerm;
