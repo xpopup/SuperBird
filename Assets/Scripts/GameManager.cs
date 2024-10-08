@@ -5,12 +5,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    static public GameManager instance;
     public GameObject wallPrefab;
     public float spawnTerm = 4;
     public TextMeshProUGUI scoreLabel;
-    float score;
+    public float score;
 
     float spawnTimer;
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
